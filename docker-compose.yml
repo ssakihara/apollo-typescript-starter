@@ -1,5 +1,15 @@
-version: "3"
+version: '3'
 services:
+  apollo-typescript-starter-node:
+    container_name: apollo-typescript-starter-node
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - 4000:4000
+    links:
+      - 'apollo-typescript-starter-postgresql:postgres'
+
   apollo-typescript-starter-postgresql:
     container_name: apollo-typescript-starter-postgresql
     image: postgres:11-alpine
@@ -7,8 +17,8 @@ services:
       - 5432:5432
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
-      TZ: "Asia/Tokyo"
-      POSTGRES_DB: "graphql"
-      POSTGRES_USER : "postgres"
-      POSTGRES_PASSWORD : ""
-      POSTGRES_INITDB_ARGS : "--encoding=UTF-8 --locale=C"
+      TZ: 'Asia/Tokyo'
+      POSTGRES_DB: 'graphql'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: ''
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --locale=C'

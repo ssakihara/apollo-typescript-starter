@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import path from 'path';
 import { ApolloServer } from 'apollo-server-express';
+import cors from 'cors';
 import express from 'express';
 import { buildSchema } from 'type-graphql';
 import { createConnection } from 'typeorm';
@@ -9,6 +10,13 @@ const main = async () => {
   await createConnection();
 
   const app = express();
+  app.use(
+    cors({
+      origin: '*',
+      credentials: true,
+      optionsSuccessStatus: 200,
+    })
+  );
 
   const schema = await buildSchema({
     resolvers: [path.resolve() + '/entity/**/*.ts'],

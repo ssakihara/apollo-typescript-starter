@@ -1,0 +1,17 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/**/node_modules"],
+  "verbose": false,
+  "execMap": {
+    "ts": "ts-node -r tsconfig-paths/register"
+  },
+  "events": {
+    "restart": "clear"
+  },
+  "watch": ["src"],
+  "env": {
+    "NODE_ENV": "development",
+    "PORT": 4000
+  },
+  "ext": "js,ts,json,graphql"
+}
