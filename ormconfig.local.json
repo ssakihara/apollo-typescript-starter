@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "host": "postgres",
+  "host": "localhost",
   "port": 5432,
   "username": "postgres",
   "password": "",
-  "database": "graphql",
+  "database": "apollo_typescript_starter",
   "synchronize": true,
   "logging": false,
   "entities": ["src/entity/**/*.ts"],
