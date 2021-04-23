@@ -10,7 +10,11 @@ const env: string = process.env.NODE_ENV ? process.env.NODE_ENV : 'local';
 const connectOption = require(`../ormconfig.${env}.json`);
 
 const main = async () => {
-  await createConnection(connectOption);
+  if (env === 'heroku') {
+    await createConnection();
+  } else {
+    await createConnection(connectOption);
+  }
 
   const app = express();
   app.use(
