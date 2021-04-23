@@ -7,7 +7,7 @@ import { buildSchema } from 'type-graphql';
 import { createConnection } from 'typeorm';
 
 const env: string = process.env.NODE_ENV ? process.env.NODE_ENV : 'local';
-const connectOption = require(`../ormconfig.${env}.json`);
+const connectOption = require(`../ormconfig.${env}.js`);
 
 const main = async () => {
   await createConnection(connectOption);
